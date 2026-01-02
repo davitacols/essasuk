@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ESASUK - Student Payment Services</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">ESASUK</div>
+            <ul class="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#services">Our Services</a></li>
+                <li><a href="#contact">Contacts</a></li>
+                <li><a href="#payment" class="pay-btn">Pay Fees</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Hassle-Free School Fee Payments</h1>
+            <p>Supporting international students in UK, US, and Canada with seamless payment solutions</p>
+            <a href="#payment" class="cta-btn">Pay School Fees Now</a>
+        </div>
+    </section>
+
+    <section id="services" class="services">
+        <div class="container">
+            <h2>Our Services</h2>
+            
+            <div class="service-card">
+                <h3>Admission Services</h3>
+                <p>We provide our admission services in 7 steps:</p>
+                <ol>
+                    <li>Registration</li>
+                    <li>Assessment</li>
+                    <li>Verification</li>
+                    <li>Application</li>
+                    <li>Processing</li>
+                    <li>Visa</li>
+                    <li>Travel</li>
+                </ol>
+                <p>Our job is to support our students gain the desired admission, secure the appropriate visa and arrive for their studies. We also provide support with regards facilities smooth school fees and other related payment services.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Accommodation Services</h3>
+                <p>We give our students the advantage by guiding them in securing their desired accommodation. The accommodation support includes securing school managed accommodation as well as external accommodation.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Family Visa Services</h3>
+                <p>We provide visa support for students with dependents and facilitate their spouse and children's visas.</p>
+                <p>We also provide visa support for students who desire visitors visa for their family members during their stay in the UK or during their graduation ceremony.</p>
+            </div>
+
+            <div class="service-card">
+                <h3>Post Study Visa Guidance</h3>
+                <p>After a student has completed their academic studies, we are able to advice and support application of the next visas required for their continued stay in the country of study or other suitable countries.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="payment" class="payment-section">
+        <div class="container">
+            <h2>Pay School Fees</h2>
+            <div class="payment-form">
+                <form id="feePaymentForm">
+                    <div class="form-group">
+                        <label for="country">Study Country</label>
+                        <select id="country" required>
+                            <option value="">Select Country</option>
+                            <option value="uk">United Kingdom</option>
+                            <option value="us">United States</option>
+                            <option value="canada">Canada</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="institution">Institution Name</label>
+                        <input type="text" id="institution" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="studentId">Student ID</label>
+                        <input type="text" id="studentId" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="amount">Amount</label>
+                        <input type="number" id="amount" step="0.01" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="currency">Currency</label>
+                        <select id="currency" required>
+                            <option value="">Select Currency</option>
+                            <option value="GBP">GBP (£)</option>
+                            <option value="USD">USD ($)</option>
+                            <option value="CAD">CAD ($)</option>
+                        </select>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Proceed to Payment</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Get in touch for any assistance with your payments or services</p>
+            <div class="contact-info">
+                <p>Email: support@esasuk.com</p>
+                <p>Phone: +44 (0) 20 XXXX XXXX</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 ESASUK. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
