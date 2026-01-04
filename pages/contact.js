@@ -39,7 +39,7 @@ export default function ContactPage() {
                 </svg>
                 <div>
                   <h4>Email</h4>
-                  <p>support@esasuk.com</p>
+                  <p>Enquiries@esasuk.com</p>
                 </div>
               </div>
 
@@ -49,7 +49,7 @@ export default function ContactPage() {
                 </svg>
                 <div>
                   <h4>Phone</h4>
-                  <p>+44 7784 814051</p>
+                  <p>+44 2081684432</p>
                 </div>
               </div>
             </div>

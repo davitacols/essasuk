@@ -65,7 +65,7 @@ export default function ContactForm() {
           </svg>
           <div>
             <h4>Email</h4>
-            <p>support@esasuk.com</p>
+            <p>Enquiries@esasuk.com</p>
           </div>
         </div>
       </div>
