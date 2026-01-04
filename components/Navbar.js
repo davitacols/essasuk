@@ -148,7 +148,7 @@ export default function Navbar() {
 
           <Link href="/contact" className={styles.ctaBtn}>Get Started</Link>
           
-          <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
+          <div className={`${styles.hamburger} ${isOpen ? styles.active : ''}`} onClick={() => setIsOpen(!isOpen)}>
             <span></span>
             <span></span>
             <span></span>
