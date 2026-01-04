@@ -329,15 +329,18 @@
   .navMenu {
     position: fixed;
     left: -100%;
-    top: 60px;
+    top: 70px;
     flex-direction: column;
     background-color: #fff;
     width: 100%;
+    height: calc(100vh - 70px);
+    overflow-y: auto;
     text-align: center;
-    transition: 0.3s;
-    padding: 2rem 0;
+    transition: left 0.3s ease;
+    padding: 1.5rem 0;
     gap: 0;
     border-bottom: 1px solid #f0f0f0;
+    z-index: 999;
   }
   
   .navMenu.active {
@@ -346,21 +349,74 @@
   
   .navMenu li {
     padding: 1rem 0;
+    border-bottom: 1px solid #f0f0f0;
+  }
+  
+  .navMenu li:last-child {
+    border-bottom: none;
+  }
+  
+  .navMenu a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  
+  .navMenu a:after {
+    display: none;
+  }
+  
+  .dropdown {
+    position: relative;
   }
   
   .dropdownMenu {
     position: static;
-    opacity: 0;
-    visibility: hidden;
+    opacity: 1;
+    visibility: visible;
     transform: none;
     box-shadow: none;
     border: none;
     background: #f8f8f8;
     margin-top: 0;
+    padding: 0;
+    min-width: auto;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+  }
+  
+  .dropdown.active .dropdownMenu {
+    max-height: 500px;
+  }
+  
+  .dropdownHeader {
+    display: none;
+  }
+  
+  .dropdownItem {
+    padding: 0.75rem 1rem;
+    border-left: none;
+    font-size: 0.9rem;
+  }
+  
+  .dropdownItem:hover {
+    background: #f0f0f0;
+    padding-left: 1rem;
+  }
+  
+  .dropdownItem svg {
+    display: none;
+  }
+  
+  .itemDesc {
+    display: none;
   }
   
   .ctaBtn {
-    display: none;
+    display: block;
+    margin: 1rem auto;
+    width: 90%;
+    text-align: center;
   }
   
   .logo {

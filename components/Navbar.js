@@ -6,14 +6,31 @@ export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState(null)
   const [isScrolled, setIsScrolled] = useState(false)
+  const [isMobile, setIsMobile] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768)
+    }
+    
     window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    window.addEventListener('resize', handleResize)
+    handleResize()
+    
+    return () => {
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('resize', handleResize)
+    }
   }, [])
+
+  const toggleDropdown = (name) => {
+    if (isMobile) {
+      setActiveDropdown(activeDropdown === name ? null : name)
+    }
+  }
 
   return (
     <nav className={`${styles.navbar} ${isScrolled ? styles.scrolled : ''}`}>
@@ -54,13 +71,18 @@ export default function Navbar() {
           </Link>
           
           <ul className={`${styles.navMenu} ${isOpen ? styles.active : ''}`}>
-            <li><Link href="/">Home</Link></li>
+            <li><Link href="/" onClick={() => setIsOpen(false)}>Home</Link></li>
             
-            <li className={styles.dropdown} onMouseEnter={() => setActiveDropdown('services')} onMouseLeave={() => setActiveDropdown(null)}>
+            <li 
+              className={`${styles.dropdown} ${activeDropdown === 'services' ? styles.active : ''}`}
+              onMouseEnter={() => !isMobile && setActiveDropdown('services')}
+              onMouseLeave={() => !isMobile && setActiveDropdown(null)}
+              onClick={() => toggleDropdown('services')}
+            >
               <Link href="/services">Services</Link>
               <div className={`${styles.dropdownMenu} ${activeDropdown === 'services' ? styles.show : ''}`}>
                 <div className={styles.dropdownHeader}>Our Services</div>
-                <a href="/services#admission" className={styles.dropdownItem}>
+                <a href="/services#admission" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
                     <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
@@ -70,7 +92,7 @@ export default function Navbar() {
                     <div className={styles.itemDesc}>7-step admission process</div>
                   </div>
                 </a>
-                <a href="/services#accommodation" className={styles.dropdownItem}>
+                <a href="/services#accommodation" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
                     <polyline points="9 22 9 12 15 12 15 22"></polyline>
@@ -80,7 +102,7 @@ export default function Navbar() {
                     <div className={styles.itemDesc}>Housing solutions</div>
                   </div>
                 </a>
-                <a href="/services#visa" className={styles.dropdownItem}>
+                <a href="/services#visa" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
                     <circle cx="9" cy="7" r="4"></circle>
@@ -92,7 +114,7 @@ export default function Navbar() {
                     <div className={styles.itemDesc}>Visa assistance</div>
                   </div>
                 </a>
-                <a href="/services#post-study" className={styles.dropdownItem}>
+                <a href="/services#post-study" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"></path>
                     <polyline points="13 2 13 9 20 9"></polyline>
@@ -105,11 +127,16 @@ export default function Navbar() {
               </div>
             </li>
             
-            <li className={styles.dropdown} onMouseEnter={() => setActiveDropdown('destinations')} onMouseLeave={() => setActiveDropdown(null)}>
+            <li 
+              className={`${styles.dropdown} ${activeDropdown === 'destinations' ? styles.active : ''}`}
+              onMouseEnter={() => !isMobile && setActiveDropdown('destinations')}
+              onMouseLeave={() => !isMobile && setActiveDropdown(null)}
+              onClick={() => toggleDropdown('destinations')}
+            >
               <Link href="#">Destinations</Link>
               <div className={`${styles.dropdownMenu} ${activeDropdown === 'destinations' ? styles.show : ''}`}>
                 <div className={styles.dropdownHeader}>Study Destinations</div>
-                <a href="#" className={styles.dropdownItem}>
+                <a href="#" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M12 6v6l4 2"></path>
@@ -119,7 +146,7 @@ export default function Navbar() {
                     <div className={styles.itemDesc}>World-class universities</div>
                   </div>
                 </a>
-                <a href="#" className={styles.dropdownItem}>
+                <a href="#" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M12 6v6l4 2"></path>
@@ -129,7 +156,7 @@ export default function Navbar() {
                     <div className={styles.itemDesc}>Top institutions</div>
                   </div>
                 </a>
-                <a href="#" className={styles.dropdownItem}>
+                <a href="#" className={styles.dropdownItem} onClick={() => setIsOpen(false)}>
                   <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <circle cx="12" cy="12" r="10"></circle>
                     <path d="M12 6v6l4 2"></path>
@@ -142,8 +169,8 @@ export default function Navbar() {
               </div>
             </li>
             
-            <li><Link href="/about">About</Link></li>
-            <li><Link href="/contact">Contact</Link></li>
+            <li><Link href="/about" onClick={() => setIsOpen(false)}>About</Link></li>
+            <li><Link href="/contact" onClick={() => setIsOpen(false)}>Contact</Link></li>
           </ul>
 
           <Link href="/contact" className={styles.ctaBtn}>Get Started</Link>
