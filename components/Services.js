@@ -1,42 +1,68 @@
 import styles from '../styles/Services.module.css'
 
 export default function Services() {
+  const services = [
+    {
+      title: 'Admission Services',
+      image: '/divaris-shirichena-04Rd4wrSI1M-unsplash.jpg',
+      description: 'Complete 7-step admission process from registration to travel arrangements.',
+      steps: ['Registration', 'Assessment', 'Verification', 'Application', 'Processing', 'Visa', 'Travel']
+    },
+    {
+      title: 'School Fees Payment Support',
+      image: '/gift-habeshaw-kSTcz5gE018-unsplash.jpg',
+      description: 'Flexible payment plans and financial guidance to help manage school fees and tuition costs.'
+    },
+    {
+      title: 'Accommodation Services',
+      image: '/accommodation.jpg',
+      description: 'Secure comfortable housing through university-managed or external accommodation options.'
+    },
+    {
+      title: 'Family Visa Services',
+      image: '/family.jpg',
+      description: 'Comprehensive visa support for dependents and family visitors during your studies.'
+    },
+    {
+      title: 'Post Study Visa Guidance',
+      image: '/career.jpg',
+      description: 'Career guidance and visa support for continued stay or relocation after graduation.'
+    }
+  ]
+
   return (
-    <section id="services" className={styles.services}>
-      <div className="container">
-        <h2>Our Services</h2>
-        
-        <div className={styles.serviceCard}>
-          <h3>Admission Services</h3>
-          <p>We provide our admission services in 7 steps:</p>
-          <ol>
-            <li>Registration</li>
-            <li>Assessment</li>
-            <li>Verification</li>
-            <li>Application</li>
-            <li>Processing</li>
-            <li>Visa</li>
-            <li>Travel</li>
-          </ol>
-          <p>Our job is to support our students gain the desired admission, secure the appropriate visa and arrive for their studies. We also provide support with regards facilities smooth school fees and other related payment services.</p>
+    <>
+      <section className={styles.hero}>
+        <div className={styles.heroContent}>
+          <h1>Our Services</h1>
+          <p>Comprehensive support for your international education journey</p>
         </div>
+      </section>
 
-        <div className={styles.serviceCard}>
-          <h3>Accommodation Services</h3>
-          <p>We give our students the advantage by guiding them in securing their desired accommodation. The accommodation support includes securing school managed accommodation as well as external accommodation.</p>
+      <section className={styles.services}>
+        <div className={styles.container}>
+          <div className={styles.servicesGrid}>
+            {services.map((service, idx) => (
+              <div key={idx} className={styles.card}>
+                <div className={styles.cardImage}>
+                  <img src={service.image} alt={service.title} />
+                </div>
+                <div className={styles.cardContent}>
+                  <h3>{service.title}</h3>
+                  <p>{service.description}</p>
+                  {service.steps && (
+                    <ul className={styles.stepsList}>
+                      {service.steps.map((step, i) => (
+                        <li key={i}>{step}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
-
-        <div className={styles.serviceCard}>
-          <h3>Family Visa Services</h3>
-          <p>We provide visa support for students with dependents and facilitate their spouse and children's visas.</p>
-          <p>We also provide visa support for students who desire visitors visa for their family members during their stay in the UK or during their graduation ceremony.</p>
-        </div>
-
-        <div className={styles.serviceCard}>
-          <h3>Post Study Visa Guidance</h3>
-          <p>After a student has completed their academic studies, we are able to advice and support application of the next visas required for their continued stay in the country of study or other suitable countries.</p>
-        </div>
-      </div>
-    </section>
+      </section>
+    </>
   )
 }

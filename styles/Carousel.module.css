@@ -1,0 +1,113 @@
+.carousel {
+  padding: 100px 50px;
+  background: #f8f8f8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.slide {
+  background: #fff;
+  padding: 4rem;
+  border: 1px solid #e5e5e5;
+  margin-bottom: 2rem;
+  min-height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.slide h2 {
+  font-size: 3rem;
+  color: #000;
+  margin-bottom: 2rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+}
+
+.slideContent {
+  margin-bottom: 2rem;
+}
+
+.slideContent h3 {
+  font-size: 1.5rem;
+  color: #000;
+  margin-bottom: 1rem;
+  font-weight: 700;
+}
+
+.slideContent p {
+  font-size: 1.05rem;
+  color: #666;
+  line-height: 1.8;
+  letter-spacing: 0.2px;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+}
+
+.btn {
+  background: #a31f34;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.2rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-weight: 700;
+  border-radius: 50px;
+}
+
+.btn:hover {
+  background: #8b1828;
+  transform: translateY(-2px);
+}
+
+.dots {
+  display: flex;
+  gap: 0.8rem;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #ddd;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.dot.active {
+  background: #a31f34;
+  width: 30px;
+  border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+  .carousel {
+    padding: 80px 20px;
+  }
+  
+  .slide {
+    padding: 2rem;
+    min-height: 300px;
+  }
+  
+  .slide h2 {
+    font-size: 2rem;
+  }
+  
+  .slideContent h3 {
+    font-size: 1.2rem;
+  }
+  
+  .slideContent p {
+    font-size: 1rem;
+  }
+}
