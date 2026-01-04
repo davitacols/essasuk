@@ -143,10 +143,10 @@ export default function Navbar() {
             </li>
             
             <li><Link href="/about">About</Link></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><Link href="/contact">Contact</Link></li>
           </ul>
 
-          <a href="#contact" className={styles.ctaBtn}>Get Started</a>
+          <Link href="/contact" className={styles.ctaBtn}>Get Started</Link>
           
           <div className={styles.hamburger} onClick={() => setIsOpen(!isOpen)}>
             <span></span>

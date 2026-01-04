@@ -3,7 +3,7 @@ import Link from 'next/link'
 import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import Carousel from '../components/Carousel'
-import Contact from '../components/Contact'
+import Footer from '../components/Footer'
 import styles from '../styles/Home.module.css'
 
 export default function Home() {
@@ -56,7 +56,7 @@ export default function Home() {
         </div>
       </section>
 
-      <Contact />
+      <Footer />
     </>
   )
 }
