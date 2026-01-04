@@ -413,10 +413,7 @@
   }
   
   .ctaBtn {
-    display: block;
-    margin: 1rem auto;
-    width: 90%;
-    text-align: center;
+    display: none;
   }
   
   .logo {
@@ -439,9 +436,34 @@
   
   .navMenu {
     padding: 1rem 0;
+    top: 65px;
   }
   
   .navMenu li {
     padding: 0.8rem 0;
+  }
+  
+  .logo {
+    gap: 0.3rem;
+  }
+  
+  .logoIcon {
+    width: 36px;
+    height: 36px;
+    font-size: 1rem;
+  }
+  
+  .logoText {
+    font-size: 0.9rem;
+  }
+  
+  .hamburger {
+    gap: 5px;
+    padding: 6px;
+  }
+  
+  .hamburger span {
+    width: 24px;
+    height: 2.5px;
   }
 }
